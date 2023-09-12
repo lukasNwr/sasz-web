@@ -1,6 +1,6 @@
 :root {
   --bg-light: ##fcfdfd;
-  --bg-light-secondary: #F4F5F5;
+  --bg-light-sec: #F4F5F5;
   --bg-dark: #05080a;
   --accent-light: #6d4b9b;
   --accent-dark: #bda9d6;
@@ -12,6 +12,7 @@
   --overlay-dark: #170e20;
   --fg-light: #05080a;
   --fg-light-sec: #7b7b8e;
+  --fg-light-ex: #c1c1cf;
   --fg-dark: white;
   --fg-dark: #fcfdfd;
   --accent-gradient: linear-gradient(
