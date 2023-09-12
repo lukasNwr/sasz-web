@@ -1,0 +1,51 @@
+---
+import { FaArrowRight } from "react-icons/fa";
+
+const { buttonText } = Astro.props;
+---
+
+<div class="button">
+  <span>
+    {buttonText}
+  </span>
+  <div class="arrow">
+    <FaArrowRight />
+  </div>
+</div>
+
+<style>
+  .button {
+    display: flex;
+    padding: 1.0625rem 2.8125rem;
+    justify-content: center;
+    align-items: center;
+    gap: 0.625rem;
+    border-radius: 1.0625rem;
+    background: var(--fg-light);
+    transition: 0.2s ease-in-out;
+    cursor: pointer;
+  }
+
+  .arrow {
+    color: white;
+    margin-bottom: -0.3rem;
+    transition: transform 0.2s ease-in-out;
+  }
+
+  .button span {
+    color: white;
+    font-size: 1.25rem;
+  }
+
+  .button:hover {
+    transform: scale(1.05) translateY(-0.1rem);
+    box-shadow:
+      rgba(0, 0, 0, 0.1) 0px 20px 25px -5px,
+      rgba(0, 0, 0, 0.04) 0px 10px 10px -5px;
+    /* background: var(--overlay-dark); */
+  }
+
+  .button:hover .arrow {
+    transform: translateX(0.5rem);
+  }
+</style>

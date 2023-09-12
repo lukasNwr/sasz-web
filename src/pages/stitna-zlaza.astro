@@ -1,0 +1,29 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Accordion from "../components/sz/Accordion.astro";
+import "../styles/theme.css";
+
+const nodes = await Astro.glob("../content/sz/node*.mdx");
+---
+
+<Layout title="Stitna zlaza">
+  <div class="intro">
+    <h1>Stitna Zlaza</h1>
+    <p>
+      Pripravili sme pre vás sekciu s najzákladnejšími informáciami o štítnej
+      žľaze- veľmi laicky a jednoducho. Dozviete sa čo je štítna žľaza, ako
+      funguje, aké hormóny produkuje aj ako indikovať potenciálny problém so
+      štítnou žľazou a popis priebehu prvej nánšetvy na endokrinológii.
+    </p>
+  </div>
+
+  {
+    nodes.map((node) => {
+      return (
+        <Accordion title={node.frontmatter.title}>
+          <node.default />
+        </Accordion>
+      );
+    })
+  }
+</Layout>

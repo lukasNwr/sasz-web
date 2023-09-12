@@ -1,0 +1,23 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Accordion from "../components/sz/Accordion.astro";
+
+import "../styles/theme.css";
+
+const kraje = await Astro.glob("../content/odbornici/kraje/*.mdx");
+import { Content as Institucie } from "../content/odbornici/institucie.mdx";
+---
+
+<Layout title="Odbornici">
+  <Institucie />
+
+  {
+    kraje.map((node) => {
+      return (
+        <Accordion title={node.frontmatter.title}>
+          <node.default />
+        </Accordion>
+      );
+    })
+  }
+</Layout>

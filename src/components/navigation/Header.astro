@@ -1,0 +1,138 @@
+---
+import "../../styles/theme.css";
+
+const menuItems = [
+  {
+    name: "Home",
+    link: "index.html",
+  },
+  //   {
+  //     name: "O nas",
+  //     link: "about.html",
+  //   },
+  {
+    name: "Stitna Zlaza",
+    link: "/stitna-zlaza",
+  },
+  //   {
+  //     name: "Odbornici",
+  //     link: "/odbornici",
+  //   },
+  {
+    name: "Komunita",
+    link: "/komunita",
+  },
+  {
+    name: "Uzitocne linky",
+    link: "/linky",
+  },
+  //   {
+  //     name: "Materialy na Stiahnutie",
+  //     link: "contact.html",
+  //   },
+  {
+    name: "Videa",
+    link: "/videa",
+  },
+];
+---
+
+<script type="module">
+  //@ts-ignore
+  //@ts-nocheck
+  const nav = document.querySelector(".items-wrapper");
+  const navLinks = nav.querySelectorAll(".nav-item");
+  const currentURL = window.location.href;
+
+  navLinks.forEach((link) => {
+    if (link.href === currentURL) {
+      link.classList.add("active");
+    }
+  });
+</script>
+
+<div class="navbar">
+  <div class="navbar-wrapper">
+    <a href="/index" class="logo">
+      <img src="../../../public/sz_logo_mono.svg" alt="mono-logo" />
+      <span>SASZ</span>
+    </a>
+    <nav class="items-wrapper">
+      {
+        menuItems.map((item) => (
+          <a href={item.link} class="nav-item ">
+            {item.name}
+          </a>
+        ))
+      }
+    </nav>
+  </div>
+</div>
+
+<style is:global>
+  .logo {
+    display: flex;
+    width: auto;
+    height: auto;
+    text-decoration: none;
+    color: var(--fg-light);
+  }
+
+  .logo > img {
+    width: 4rem;
+    height: 4rem;
+    margin: -1rem;
+  }
+
+  .logo > span {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--fg-light);
+    margin: 0 1rem;
+  }
+
+  .navbar-wrapper {
+    display: flex;
+    max-width: 1440px;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    padding-block: 1rem;
+    padding-inline: 3rem;
+  }
+
+  .navbar {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: white;
+    box-shadow: rgba(33, 35, 38, 0.1) 0px 10px 10px -10px;
+    z-index: 10;
+  }
+
+  .items-wrapper {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    left: auto;
+  }
+
+  .nav-item {
+    color: var(--fg-light-sec);
+    text-decoration: none;
+    transition: color 0.2s ease-in-out;
+  }
+
+  .nav-item:hover {
+    color: var(--fg-light);
+  }
+
+  .nav-item.active {
+    color: var(--fg-light);
+  }
+</style>

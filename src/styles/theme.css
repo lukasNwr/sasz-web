@@ -1,0 +1,23 @@
+:root {
+  --bg-light: ##fcfdfd;
+  --bg-light-secondary: #F4F5F5;
+  --bg-dark: #05080a;
+  --accent-light: #6d4b9b;
+  --accent-dark: #bda9d6;
+  --primary: #d3a4ff;
+  --secondary-light: ##f7f2ff;
+  --secondary-dark: #220059;
+  --accent-light: #d7c6e7;
+  --accent-dark: #492b64;
+  --overlay-dark: #170e20;
+  --fg-light: #05080a;
+  --fg-light-sec: #7b7b8e;
+  --fg-dark: white;
+  --fg-dark: #fcfdfd;
+  --accent-gradient: linear-gradient(
+    45deg,
+    rgb(var(--accent)),
+    rgb(var(--accent-light)) 30%,
+    rgb(var(--accent-dark)) 60%
+  );
+}

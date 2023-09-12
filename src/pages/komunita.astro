@@ -1,0 +1,38 @@
+---
+import Layout from "../layouts/Layout.astro";
+import "../styles/theme.css";
+import {Content as MDSZ} from '../content/komunita/mdsz.mdx';
+---
+
+<Layout title="Komunita">
+    <h1>Komunita</h1>
+    <p>Cieľom slovenskej asociácie štítnej žľazy je vybudovať komunitu pacientov s ochoreniami štítnej žľazy. Zatiaľ sme na začiatku cesty, preto s vami zdieľame celosvetovovú organizáciu pre pacientov s ochoreniami štítnej žľazy <a href="https://thyroid-fed.org/">thyroid-fed.org</a> a ich aktivity, medzi ktoré patrí aj organizácia svetového dňa/ týždňa/ mesaca  štítnej žľazy </p>
+
+    <div class="mdsz">
+        <img src="/world-thyroid-day-logo-1.jpeg" alt="Medzinarodny den stitnej zlazy">
+        <div class="mdsz-text">
+            <h1>Medzinarodny den stitnej zlazy</h1>
+            <MDSZ />
+            <p>Zdroj: <a href="thyroidweek.org/wtd/">thyroidweek.org</a></p>
+        </div>
+    </div>
+</Layout>
+
+<style>
+    .mdsz {
+        display: flex;
+        align-items: start;
+    }
+
+    .mdsz > img {
+        min-width: 40%;
+        object-fit: contain;
+        margin-top: 6rem;
+    }
+    .mdsz-text {
+        width: 60%;
+        display: flex;
+        flex-direction: column;
+        padding-inline: 2rem;
+    }
+</style>

@@ -1,0 +1,66 @@
+---
+//@ts-nocheck
+//@ts-ignore
+
+import Layout from "../layouts/Layout.astro";
+import Hero from "../components/home/hero.astro";
+import JoinUs from "../components/home/JoinUs.astro";
+import Warning from "../components/home/Warning.astro";
+import Card from "../components/home/HomeCard.astro";
+import HomeCard from "../components/home/HomeCard.astro";
+import Button from "../components/Button.astro";
+---
+
+<script>
+  const joinBtn = document.querySelector(".join-btn");
+
+  if (joinBtn != null) {
+    joinBtn.addEventListener("click", () => {
+      window.open("https://www.facebook.com/groups/2453636744795347/");
+    });
+  }
+</script>
+
+<Layout title="SASZ">
+  <div class="home">
+    <Hero />
+    <div class="cards">
+      <HomeCard
+        title="Pridajte sa k nam"
+        body="Vytvorili sme skupinu na sociálnej sieti Facebook, kde sa môžte pridať a byť tak v kontakte s ostatnými priaznivcami našej asociácie."
+        image="/home/join-us.svg"
+        button={true}
+        buttonText="Pridajte sa"
+      >
+        <div class="join-btn">
+          <Button buttonText="Pridajte sa" />
+        </div>
+      </HomeCard>
+      <HomeCard
+        title="Pozor!"
+        body="Nie sme odborníci, sme pacienti, avšak všetky informácie uvedené na tejto stránke sa snažíme podložiť hodnovernými informáciami s transparentnými zdrojmi. V prípade akýchkoľvek pripomienok prípadne návrhov na úpravu nás neváhajte kontaktovať."
+        image="/home/warning.svg"
+        button={false}
+        buttonText="Pridajte sa"
+      />
+    </div>
+  </div>
+  <!--
+      <JoinUs
+    /> -->
+  <!-- <Warning />  -->
+</Layout>
+
+<style>
+  .home {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .cards {
+    display: flex;
+    gap: 2rem;
+    padding-block: 5rem;
+  }
+</style>
