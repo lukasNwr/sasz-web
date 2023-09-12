@@ -37,6 +37,8 @@ const menuItems = [
 ];
 ---
 
+<script></script>
+
 <script type="module">
   //@ts-ignore
   //@ts-nocheck
@@ -49,6 +51,24 @@ const menuItems = [
       link.classList.add("active");
     }
   });
+
+  const navbar = document.querySelector(".navbar");
+  const scrollThreshold = window.innerHeight / 4;
+
+  function checkScrollPostition() {
+    if (navbar) {
+      const scrollY = window.scrollY;
+
+      if (scrollY >= scrollThreshold) {
+        navbar.classList.add("scrolled");
+      } else {
+        navbar.classList.remove("scrolled");
+      }
+    }
+  }
+
+  window.addEventListener("scroll", checkScrollPostition);
+  checkScrollPostition();
 </script>
 
 <div class="navbar">
@@ -110,9 +130,15 @@ const menuItems = [
     top: 0;
     left: 0;
     right: 0;
+    background-color: #fbfafd;
+
+    z-index: 10;
+    transition: all 0.3s ease-in-out;
+  }
+
+  .navbar.scrolled {
     background-color: white;
     box-shadow: rgba(33, 35, 38, 0.1) 0px 10px 10px -10px;
-    z-index: 10;
   }
 
   .items-wrapper {
