@@ -7,49 +7,70 @@ const nodes = await Astro.glob("../content/sz/*.mdx");
 ---
 
 <Layout title="Stitna zlaza">
-  <div class="sz-wrapper">
-    <div class="intro">
-      <h1 class="main-title">Stitna Zlaza</h1>
-      <p>
-        Pripravili sme pre vás sekciu s najzákladnejšími informáciami o štítnej
-        žľaze- veľmi laicky a jednoducho. Dozviete sa čo je štítna žľaza, ako
-        funguje, aké hormóny produkuje aj ako indikovať potenciálny problém so
-        štítnou žľazou a popis priebehu prvej nánšetvy na endokrinológii.
-      </p>
+    <div class="sz-wrapper">
+        <div class="intro">
+            <h1 class="main-title">Stitna Zlaza</h1>
+            <p>
+                Pripravili sme pre vás sekciu s najzákladnejšími informáciami o štítnej
+                žľaze- veľmi laicky a jednoducho. Dozviete sa čo je štítna žľaza, ako
+                funguje, aké hormóny produkuje aj ako indikovať potenciálny problém so
+                štítnou žľazou a popis priebehu prvej nánšetvy na endokrinológii.
+            </p>
+        </div>
+        <div class="accordion-wrapper">
+            {
+                nodes.map((node) => {
+                    return (
+                            <Accordion title={node.frontmatter.title}>
+                                <node.default/>
+                            </Accordion>
+                    );
+                })
+            }
+        </div>
     </div>
-    <div class="accordion-wrapper">
-      {
-        nodes.map((node) => {
-          return (
-            <Accordion title={node.frontmatter.title}>
-              <node.default />
-            </Accordion>
-          );
-        })
-      }
-    </div>
-  </div>
 </Layout>
 
 <style>
-  .main-title {
-    color: var(--accent-dark);
-    font-size: 3.5rem;
-  }
+    .main-title {
+        color: var(--accent-dark);
+        font-size: 3.5rem;
+    }
 
-  .intro {
-    padding-inline: 2rem;
-  }
+    .intro {
+        padding-inline: 2rem;
+    }
 
-  .sz-wrapper {
-    max-width: 1440px;
-    margin-top: 3rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
+    .sz-wrapper {
+        max-width: 1440px;
+        margin-top: 3rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
 
-  .accordion-wrapper {
-    margin-top: 5rem;
-  }
+    .accordion-wrapper {
+        margin-top: 5rem;
+    }
+
+
+    @media screen and (max-width: 940px) {
+        .sz-wrapper {
+            display: flex;
+            min-width: 80vw;
+            max-width: 90vw;
+        }
+
+        .main-title {
+            font-size: 3rem;
+        }
+    }
+
+    @media screen and (max-width: 720px) {
+
+
+        .main-title {
+            font-size: 2rem;
+        }
+    }
 </style>

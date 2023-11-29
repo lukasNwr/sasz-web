@@ -52,11 +52,13 @@ const { title } = Astro.props;
     font-size: 2rem;
     font-weight: 600;
   }
+
   .accordion {
     padding-block: 1rem;
     padding-inline: 3rem;
     transition: all 0.5s ease;
   }
+
   .accordion-label {
     width: 100%;
     padding: 10px 0;
@@ -103,9 +105,6 @@ const { title } = Astro.props;
     opacity: 0.4;
   }
 
-  .accordion-label.active .accordion {
-    background-color: red;
-  }
 
   .sources {
     display: flex;
@@ -115,5 +114,23 @@ const { title } = Astro.props;
 
   .link {
     margin: 0.3rem 0;
+  }
+
+  @media screen and (max-width: 940px) {
+    .accordion-title {
+      font-size: 1.5rem;
+      font-weight: 600;
+    }
+
+
+  }
+
+  @media screen and (max-width: 720px) {
+    .accordion-title {
+      font-size: 1.2rem;
+      font-weight: 600;
+    }
+
+
   }
 </style>
