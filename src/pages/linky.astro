@@ -5,7 +5,29 @@ import {Content as Links} from '../content/linky/linky.mdx'
 ---
 
 <Layout title="Uzitocne linky">
-    <h1>Uzitocne Linky</h1>
-    <Links />
+    <div class="page-wrapper">
+        <h1>Uzitocne Linky</h1>
+
+        <Links/>
+    </div>
+
 </Layout>
 
+<style>
+    .title {
+        display: flex;
+        align-items: start;
+    }
+
+    .page-wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+    }
+
+    h1 {
+        font-size: 3.5rem;
+        color: var(--accent-dark);
+    }
+
+</style>
