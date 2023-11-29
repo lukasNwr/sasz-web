@@ -1,93 +1,153 @@
 <section id="hero">
-  <div class="hero-body">
-    <div class="welcome-wrapper">
-      <div class="img-wrapper">
-        <!-- <div class="circle"></div> -->
-        <img class="hero-img" src="/home/hero-image.svg" alt="hero-logo" />
-      </div>
-      <div class="welcome-content">
-        <h1 class="hero-title">
-          Slovenská <br /> Asociácia <br /> Štítnej žľazy
-        </h1>
-        <p>
-          Cieľom Slovenskej Asociácie Štítnej Žľazy je  vytvoriť aktívnu komunitu ľudí s ochoreniami štítnej žľazy či
-          ich blízkych a budovať prepojenia našej komunity na odbornú obec. Veríme, že takáto komunita zvýši kvalitu života ľudí s ochorením štítnej žľazy a vytvorí jednoduchší štart do tohto života pre novodiagnostikovaných pacientov.
-        </p>
-      </div>
+    <div class="hero-body">
+        <div class="welcome-wrapper">
+            <div class="img-wrapper">
+                <!-- <div class="circle"></div> -->
+                <img class="hero-img" src="/home/hero-image.svg" alt="hero-logo"/>
+            </div>
+            <div class="welcome-content">
+                <h1 class="hero-title">
+                    Slovenská <br/> Asociácia <br/> Štítnej žľazy
+                </h1>
+                <h1 class="hero-title-small">
+                    Slovenská Asociácia Štítnej žľazy
+                </h1>
+                <p>
+                    Cieľom Slovenskej Asociácie Štítnej Žľazy je vytvoriť aktívnu komunitu ľudí s ochoreniami štítnej
+                    žľazy či
+                    ich blízkych a budovať prepojenia našej komunity na odbornú obec. Veríme, že takáto komunita zvýši
+                    kvalitu života ľudí s ochorením štítnej žľazy a vytvorí jednoduchší štart do tohto života pre
+                    novodiagnostikovaných pacientov.
+                </p>
+            </div>
+        </div>
     </div>
-  </div>
 </section>
 
 <style>
-  .circle {
-    position: absolute;
-    width: 47.60631rem;
-    height: 46.71rem;
-    transform: rotate(-37.125deg);
-    flex-shrink: 0;
-    border-radius: 47.60631rem;
-    background: var(--bg-light, #efeffb);
-    z-index: -1;
-    left: -20rem;
-    top: -5rem;
-  }
+    .hero-title-small {
+        display: none;
+    }
 
-  #hero {
-    margin-top: 5rem;
-    padding-bottom: 10rem;
-  }
+    #hero {
+        margin-top: 5rem;
+        padding-bottom: 10rem;
+    }
 
-  .welcome-wrapper {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    gap: 4rem;
-  }
-  .welcome-content {
-    display: flex;
-    width: 50%;
-    flex-direction: column;
-    text-align: left;
-    justify-content: center;
-    align-items: left;
-  }
+    .welcome-wrapper {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        gap: 4rem;
+    }
 
-  .welcome-content p,
-  .welcome-content h1 {
-    max-width: 29rem;
-  }
+    .welcome-content {
+        display: flex;
+        width: 50%;
+        flex-direction: column;
+        text-align: left;
+        justify-content: center;
+        align-items: left;
+    }
 
-  .welcome-content p {
-    color: var(--foreground-light-sec);
-  }
+    .welcome-content p,
+    .welcome-content h1 {
+        max-width: 29rem;
+    }
 
-  .hero-title {
-    font-size: 4.5rem;
-    font-weight: 700;
-    text-align: left;
-    color: var(--accent-dark);
-    margin-bottom: 1rem;
-  }
+    .welcome-content p {
+        color: var(--foreground-light-sec);
+    }
 
-  .hero-img {
-    max-width: 33rem;
-  }
+    .hero-title {
+        font-size: 4.5rem;
+        font-weight: 700;
+        text-align: left;
+        color: var(--accent-dark);
+        margin-bottom: 1rem;
+    }
 
-  .img-wrapper {
-    width: 50%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding-top: 6rem;
-    position: relative;
-  }
+    .hero-img {
+        max-width: 33rem;
+    }
 
-  .hero-body {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    max-height: 45rem;
-  }
+    .img-wrapper {
+        width: 50%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding-top: 6rem;
+        position: relative;
+    }
+
+    .hero-body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        max-height: 45rem;
+    }
+
+    @media screen and (max-width: 940px) {
+        .welcome-wrapper {
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        .hero-title {
+            display: none;
+        }
+
+        .hero-title-small {
+            display: block;
+            font-size: 3rem;
+            font-weight: 700;
+            text-align: left;
+            color: var(--accent-dark);
+            margin-bottom: 1rem;
+        }
+
+        .welcome-content p,
+        .welcome-content h1 {
+            max-width: 100%;
+        }
+
+        .welcome-content {
+            display: flex;
+            width: 100%;
+            max-width: 90vw;
+        }
+
+        #hero {
+            padding-bottom: 10rem;
+            margin: 0;
+        }
+
+        .img-wrapper {
+            width: 50%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding-top: 2rem;
+            position: relative;
+        }
+    }
+
+
+    @media screen and (max-width: 720px) {
+        .hero-title-small {
+
+            font-size: 2rem;
+            font-weight: 700;
+
+
+        }
+
+    }
+
 </style>

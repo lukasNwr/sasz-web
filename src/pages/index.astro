@@ -12,55 +12,67 @@ import Button from "../components/Button.astro";
 ---
 
 <script>
-  const joinBtn = document.querySelector(".join-btn");
+    const joinBtn = document.querySelector(".join-btn");
 
-  if (joinBtn != null) {
-    joinBtn.addEventListener("click", () => {
-      window.open("https://www.facebook.com/groups/2453636744795347/");
-    });
-  }
+    if (joinBtn != null) {
+        joinBtn.addEventListener("click", () => {
+            window.open("https://www.facebook.com/groups/2453636744795347/");
+        });
+    }
 </script>
 
 <Layout title="SASZ">
-  <div class="home">
-    <Hero />
-    <div class="cards">
-      <HomeCard
-        title="Pridajte sa k nám"
-        body="Staňte sa členom nášho občianského združenia alebo sa pridajte do skupiny na Facebooku"
-        image="/home/join-us.svg"
-        button={true}
-        buttonText="Pridajte sa k nám"
-      >
-        <div class="join-btn">
-          <Button buttonText="Pridajte sa" />
+    <div class="home">
+        <Hero/>
+        <div class="cards">
+            <HomeCard
+                    title="Pridajte sa k nám"
+                    body="Staňte sa členom nášho občianského združenia alebo sa pridajte do skupiny na Facebooku"
+                    image="/home/join-us.svg"
+                    button={true}
+                    buttonText="Pridajte sa k nám"
+            >
+                <div class="join-btn">
+                    <Button buttonText="Pridajte sa"/>
+                </div>
+            </HomeCard>
+            <HomeCard
+                    title="Pozor!"
+                    body="SASZ nie je združenie odborníkov, všetky informácie uvedené na tejto stránke sú čerpané z internetových zdrojov a dostupnej literatúry. Aby sme zabezpečili transparentosť a hodnovernosť poskytnutých informácií zdieľame s vami naše zdroje. V prípade pripomienok, či nesprávnosti našich tvrdení nás prosím čím skôr kontaktujte!"
+                    image="/home/warning.svg"
+                    button={false}
+                    buttonText="Pridajte sa"
+            />
         </div>
-      </HomeCard>
-      <HomeCard
-        title="Pozor!"
-        body="SASZ nie je združenie odborníkov, všetky informácie uvedené na tejto stránke sú čerpané z internetových zdrojov a dostupnej literatúry. Aby sme zabezpečili transparentosť a hodnovernosť poskytnutých informácií zdieľame s vami naše zdroje. V prípade pripomienok, či nesprávnosti našich tvrdení nás prosím čím skôr kontaktujte!"
-        image="/home/warning.svg"
-        button={false}
-        buttonText="Pridajte sa"
-      />
     </div>
-  </div>
-  <!--
-      <JoinUs
-    /> -->
-  <!-- <Warning />  -->
-</Layout>
 
-<style>
-  .home {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-  .cards {
-    display: flex;
-    gap: 2rem;
-    padding-block: 5rem;
-  }
-</style>
+    <style>
+        .home {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+        }
+
+        .cards {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            padding-block: 2rem;
+        }
+
+
+        @media screen and (min-width: 940px) {
+            .cards {
+                flex-direction: row;
+            }
+        }
+
+        @media screen and (min-width: 1024px) {
+            .home {
+                padding: 4rem;
+            }
+        }
+    </style>
+</Layout>
