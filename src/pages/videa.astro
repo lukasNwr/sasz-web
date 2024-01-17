@@ -1,110 +1,48 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import "../styles/theme.css";
-import VideoCard from "../components/VideoCard.astro";
+// import VideoCard from "../components/VideoCard.astro";
 ---
 
 <Layout title="Videa">
-    <div class="page-wrapper">
-        <h1>Videa</h1>
-        <p>
-            V tejto sekcii budeme zdieľať zaujímavé videá o štítnej žľaze, ktoré sme
-            našli na youtube :)
-        </p>
-        <div class="video-list">
-            <div class="video-container">
-                <div class="video-wrapper">
-                    <iframe
-                            slot="video-frame"
-                            class="video"
-                            src="https://www.youtube.com/embed/BlXmZEo7ouM"
-                            title="ŠPECIALISTI - Všetko čo potrebujete vedieť o vyšetrení u endokrinológa"
-                            frameborder="0"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                            allowfullscreen
-                    ></iframe>
-                </div>
-                <div class="description">
-                    <p>Všetko čo potrebujete vedieť o vyšetrení u endokrinológa</p>
-                </div>
-            </div>
-
-            <div class="video-container">
-                <div class="video-wrapper">
-                    <iframe
-                            slot="video-frame"
-                            class="video"
-                            src="https://www.youtube.com/embed/BlXmZEo7ouM"
-                            title="ŠPECIALISTI - Všetko čo potrebujete vedieť o vyšetrení u endokrinológa"
-                            frameborder="0"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                            allowfullscreen
-                    ></iframe>
-                </div>
-                <div class="description">
-                    <p>Všetko čo potrebujete vedieť o vyšetrení u endokrinológa</p>
-                </div>
-            </div>
+  <div class="page-wrapper">
+    <h1>Videa</h1>
+    <p>
+      V tejto sekcii budeme zdieľať zaujímavé videá o štítnej žľaze, ktoré sme
+      našli na youtube :)
+    </p>
+    <div class="video-list">
+      <div class="video-container">
+        <div class="video-wrapper">
+          <iframe
+            slot="video-frame"
+            class="video"
+            src="https://www.youtube.com/embed/BlXmZEo7ouM"
+            title="ŠPECIALISTI - Všetko čo potrebujete vedieť o vyšetrení u endokrinológa"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen></iframe>
         </div>
+        <div class="description">
+          <p>Všetko čo potrebujete vedieť o vyšetrení u endokrinológa</p>
+        </div>
+      </div>
+
+      <div class="video-container">
+        <div class="video-wrapper">
+          <iframe
+            slot="video-frame"
+            class="video"
+            src="https://www.youtube.com/embed/BlXmZEo7ouM"
+            title="ŠPECIALISTI - Všetko čo potrebujete vedieť o vyšetrení u endokrinológa"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen></iframe>
+        </div>
+        <div class="description">
+          <p>Všetko čo potrebujete vedieť o vyšetrení u endokrinológa</p>
+        </div>
+      </div>
     </div>
-
-
+  </div>
 </Layout>
-
-<style>
-    h1 {
-        font-size: 3.5rem;
-        color: var(--accent-dark);
-    }
-
-    .page-wrapper {
-        display: flex;
-        flex-direction: column;
-        align-items: start;
-    }
-
-    .video-list {
-        width: 100%;
-        padding-top: 5rem;
-    }
-
-    .video-container {
-        display: flex;
-        flex-direction: column;
-        width: 100%;
-        padding-block: 2rem;
-    }
-
-    .video-wrapper {
-        position: relative;
-        width: 100%;
-        height: 0;
-        padding-top: 56.25%; /* 16:9 aspect ratio */
-    }
-
-    .video {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-    }
-
-    .description {
-        display: flex;
-        width: 100%;
-        align-items: center;
-        justify-content: center;
-
-    }
-
-    @media screen and (max-width: 940px) {
-        .page-wrapper {
-            display: flex;
-            min-width: 80vw;
-            max-width: 90vw;
-        }
-    }
-
-
-</style>
