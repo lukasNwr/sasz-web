@@ -4,14 +4,51 @@ import "../styles/theme.css";
 ---
 
 <Layout title="O nas">
-  <div class="onas-wrapper">Túto stranku pripravujeme...</div>
+  <div class="page-wrapper">
+    <section id="intro">
+      <img src="https://placehold.co/400x400" alt="pacient-lekar-img" />
+      <div class="intro-content">
+        <h1>Tu bude obrazok a uvodny text</h1>
+        <p>
+          aslkdfjhaslkdfjhalskjdfhaklsjdhflkajshdflkajshdfkljashdflkjashdfkljhadkljfhaskljdfhalksjdfhlkajsdhfkljashdfklashdflkjahdlkfjhalkdjfhakljdshfkajsdhflkjahsdlfkjahsdklfjhaslkdjfhaskljdfhlkasjdhflkajshdflkjashdflkjhasdlkfhaskldjfhalksjdhflkajsdhflkjashdflkjahsdklfjhasdlkfhakl
+        </p>
+      </div>
+    </section>
+    <section>Tu bude seckcia s hlavnym obashom</section>
+    <section>Tu budu ciele a motivacia</section>
+    <div class="onas-wrapper">Túto stranku pripravujeme...</div>
+  </div>
 </Layout>
 
 <style>
-  .onas-wrapper {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  .page-wrapper {
     padding-top: 3rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
+
+  .intro-content {
+    display: flex;
+    flex-direction: column;
+    background-color: blue;
+    gap: 3rem;
+    flex: 1;
+  }
+
+  #intro {
+    display: flex;
+    gap: 5rem;
+    background-color: red;
+    max-width: 1440px;
+    flex: 1;
+  }
+
+  /* @media screen and (max-width: 940px) {
+    .page-wrapper {
+      display: flex;
+      min-width: 80vw;
+      max-width: 90vw;
+    }
+  } */
 </style>
