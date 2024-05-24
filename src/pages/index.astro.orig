@@ -27,7 +27,11 @@ import Button from "../components/Button.astro";
     <div class="cards">
       <HomeCard
         title="Pridajte sa k nám"
+<<<<<<< HEAD
+        body="Staňte sa členom nášho občianského združenia alebo sa pridajte do skupiny na Facebooku"
+=======
         body="Pripravujeme možnosť členstva, zatiaľ sa môžte pridať do našej skupiny na Facebooku kde budeme zdieľať aktuality"
+>>>>>>> texty
         image="/home/join-us.svg"
         button={true}
         buttonText="Pridajte sa k nám"
@@ -38,7 +42,11 @@ import Button from "../components/Button.astro";
       </HomeCard>
       <HomeCard
         title="Pozor!"
+<<<<<<< HEAD
+        body="SASZ nie je združenie odborníkov, všetky informácie uvedené na tejto stránke sú čerpané z internetových zdrojov a dostupnej literatúry. Aby sme zabezpečili transparentosť a hodnovernosť poskytnutých informácií zdieľame s vami naše zdroje. V prípade pripomienok, či nesprávnosti našich tvrdení nás prosím čím skôr kontaktujte!"
+=======
         body="SASZ nie je združenie odborníkov, všetky informácie uvedené na tejto stránke sú čerpané z voľne dostupných zdrojov. Aby sme zabezpečili transparentosť a hodnovernosť poskytnutých informácií zdieľame s vami naše zdroje. V prípade pripomienok, či nesprávnosti nás prosím čím skôr kontaktujte!"
+>>>>>>> texty
         image="/home/warning.svg"
         button={false}
         buttonText="Pridajte sa"

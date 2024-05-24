@@ -1,41 +1,73 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import "../styles/theme.css";
-import {Content as Links} from '../content/linky/linky.mdx'
+import { Content as Links } from "../content/linky/linky.mdx";
 ---
 
-<Layout title="Uzitocne linky">
-    <div class="page-wrapper">
-        <h1>Uzitocne Linky</h1>
+<!-- <script>
+  function resizeIFrameToFitContent(iFrame) {
+    iFrame.width = iFrame.contentWindow.document.body.scrollWidth;
+    iFrame.height = iFrame.contentWindow.document.body.scrollHeight;
+  }
 
-        <Links/>
-    </div>
+  window.addEventListener("DOMContentLoaded", function (e) {
+    var iFrame = document.getElementById("iFrame1");
+    resizeIFrameToFitContent(iFrame);
 
+    // or, to resize all iframes:
+    var iframes = document.querySelectorAll("iframe");
+    for (var i = 0; i < iframes.length; i++) {
+      resizeIFrameToFitContent(iframes[i]);
+    }
+  });
+</script> -->
+<Layout title="Užitočné zdroje">
+  <div class="page-wrapper">
+    <h1>Užitočné zdroje</h1>
+
+    <p>
+      V nasledujúcej sekcii s vami zdieľame domáce i zahraničné zdroje, ktoré sa
+      zaoberajú štítnou žľazou. V prípade, že máte návrhy na dobré zdroje (napr.
+      článok, video alebo knižku), ktoré nám tu chýbajú, kľudne nám pošlite mail
+      na sastitnejzlazy@gmail.com, radi rozšírime náš záber :)
+    </p>
+    <p><strong>Túto sekciu pravidelne aktualizujeme.</strong></p>
+
+    <h3>Štítna žľaza: Ako zasahuje srdce či psychiku</h3>
+    <p>
+      Komplexný článok o štítnej žľaze a rozhovor s predsedom Českej
+      endokinologickej spoločnosti z víkendového vydania HN Magazínu, Marec,
+      2024 číslo 9, ročník 10. Zverejnené so súhlasom vedenia magazínu.
+    </p>
+    <object class="pdf" data="/hn-clanok-sz.pdf" width="100%" height="500">
+    </object>
+
+    <Links />
+  </div>
 </Layout>
 
 <style>
-    .title {
-        display: flex;
-        align-items: start;
-    }
+  .title {
+    display: flex;
+    align-items: start;
+  }
 
+  .page-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+  }
+
+  h1 {
+    font-size: 3.5rem;
+    color: var(--accent-dark);
+  }
+
+  @media screen and (max-width: 940px) {
     .page-wrapper {
-        display: flex;
-        flex-direction: column;
-        align-items: start;
+      display: flex;
+      min-width: 80vw;
+      max-width: 90vw;
     }
-
-    h1 {
-        font-size: 3.5rem;
-        color: var(--accent-dark);
-    }
-
-    @media screen and (max-width: 940px) {
-        .page-wrapper {
-            display: flex;
-            min-width: 80vw;
-            max-width: 90vw;
-        }
-    }
-
+  }
 </style>

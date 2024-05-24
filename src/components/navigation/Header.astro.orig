@@ -33,8 +33,13 @@ const menuItems = [
   //     link: "contact.html",
   //   },
   // {
+<<<<<<< HEAD
   //   name: "Videá",
   //   link: "/videa",
+=======
+  //  name: "Videá",
+  // link: "/videa",
+>>>>>>> texty
   // },
 ];
 ---

@@ -1,6 +1,10 @@
 ---
 layout: "/src/layouts/SZLayout.astro"
+<<<<<<< HEAD
+title: Ako stitna zlaza funguje?
+=======
 title: Ako funguje štítna žľaza?
+>>>>>>> texty
 ---
 
 Tyroxín (T4) je v tele premenený na trijódtyronín (T3), ktorý je následne biologicky aktívny a ovplyvňuje aktivitu všetkých buniek a tkanív v tele. Ľudské však telo niekedy potrebuje hormónov štítnej žľazy viac a niekedy menej. Aby bola produkcia hormónov T4 a T3 nastavená správne, v súlade s potrebami tela, štítna žľaza spolupracuje s podmozgovou žľazou ( hypofýza; glandula pituitaria).
@@ -13,7 +17,11 @@ V prípade štítnej žľazy a za účelom jednoduchého zobrazenia jej funkcie 
 
 <img
   style="max-width:100%"
+<<<<<<< HEAD
+  src="../../../public/sz/node4/Popis_hormonalnej_stimulacie_stítna_zlaza.png"
+=======
   src="/public/sz/node4/Popis_hormonalnej_stimulacie_stítna_zlaza.png"
+>>>>>>> texty
   alt="Fungovanie stitnej zlazy"
 />
 
