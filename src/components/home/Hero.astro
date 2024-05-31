@@ -1,152 +1,146 @@
 <section id="hero">
-    <div class="hero-body">
-        <div class="welcome-wrapper">
-            <div class="img-wrapper">
-                <!-- <div class="circle"></div> -->
-                <img class="hero-img" src="/home/hero-image.svg" alt="hero-logo"/>
-            </div>
-            <div class="welcome-content">
-                <h1 class="hero-title">
-                    Slovenská <br/> Asociácia <br/> Štítnej žľazy
-                </h1>
-                <h1 class="hero-title-small">
-                    Slovenská Asociácia Štítnej žľazy
-                </h1>
-                <p>
-                    Sme novovzniknutá platforma pre ľudí s ochorením štítnej žľazy, rovnako aj pre ich blízkych.
-                     Našim cieľom je prepojiť  komunitu pacientov s ochorením štítnej žľazy  a odbornú obec, 
-                    tak aby sme spoločne mohli hľadať riešenia, ktoré nám pomôžu zvýšiť kvalitu našich životov. 
-                    Myslíme aj na novodiagnostikovaných pacientov, pre ktorých chceme vytvoriť jednoduchší štart do tohto životného štýlu.
-                </p>
-            </div>
-        </div>
+  <div class="hero-body">
+    <div class="welcome-wrapper">
+      <div class="img-wrapper">
+        <!-- <div class="circle"></div> -->
+        <img class="hero-img" src="/home/hero-image.svg" alt="hero-logo" />
+      </div>
+      <div class="welcome-content">
+        <h1 class="hero-title">
+          Slovenská <br /> Asociácia <br /> Štítnej žľazy
+        </h1>
+        <h1 class="hero-title-small">Slovenská Asociácia Štítnej žľazy</h1>
+        <p>
+          Sme novovzniknutá platforma pre ľudí s ochorením štítnej žľazy,
+          rovnako aj pre ich blízkych. Našim cieľom je prepojiť komunitu
+          pacientov s ochorením štítnej žľazy a odbornú obec, tak aby sme
+          spoločne mohli hľadať riešenia, ktoré nám pomôžu zvýšiť kvalitu našich
+          životov. Myslíme aj na novodiagnostikovaných pacientov, pre ktorých
+          chceme vytvoriť jednoduchší štart do tohto životného štýlu.
+        </p>
+      </div>
     </div>
+  </div>
 </section>
 
 <style>
-    .hero-title-small {
-        display: none;
-    }
+  .hero-title-small {
+    display: none;
+  }
 
-    #hero {
-        margin-top: 5rem;
-        padding-bottom: 10rem;
-    }
+  #hero {
+    /* margin-top: 5rem; */
+    height: calc(100svh - 5rem);
+    padding-bottom: 10rem;
+  }
 
+  .welcome-wrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 4rem;
+  }
+
+  .welcome-content {
+    display: flex;
+    width: 50%;
+    flex-direction: column;
+    text-align: left;
+    justify-content: center;
+    align-items: left;
+  }
+
+  .welcome-content p,
+  .welcome-content h1 {
+    max-width: 29rem;
+  }
+
+  .welcome-content p {
+    color: var(--foreground-light-sec);
+  }
+
+  .hero-title {
+    font-size: 4.5rem;
+    font-weight: 700;
+    text-align: left;
+    color: var(--accent-dark);
+    margin-bottom: 1rem;
+  }
+
+  .hero-img {
+    max-width: 33rem;
+  }
+
+  .img-wrapper {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-top: 6rem;
+    position: relative;
+  }
+
+  .hero-body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    max-height: 45rem;
+  }
+
+  @media screen and (max-width: 940px) {
     .welcome-wrapper {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: center;
-        gap: 4rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
     }
 
-    .welcome-content {
-        display: flex;
-        width: 50%;
-        flex-direction: column;
-        text-align: left;
-        justify-content: center;
-        align-items: left;
+    .hero-title {
+      display: none;
+    }
+
+    .hero-title-small {
+      display: block;
+      font-size: 3rem;
+      font-weight: 700;
+      text-align: left;
+      color: var(--accent-dark);
+      margin-bottom: 1rem;
     }
 
     .welcome-content p,
     .welcome-content h1 {
-        max-width: 29rem;
+      max-width: 100%;
     }
 
-    .welcome-content p {
-        color: var(--foreground-light-sec);
+    .welcome-content {
+      display: flex;
+      width: 100%;
+      max-width: 90vw;
     }
 
-    .hero-title {
-        font-size: 4.5rem;
-        font-weight: 700;
-        text-align: left;
-        color: var(--accent-dark);
-        margin-bottom: 1rem;
-    }
-
-    .hero-img {
-        max-width: 33rem;
+    #hero {
+      padding-bottom: 10rem;
+      margin: 0;
     }
 
     .img-wrapper {
-        width: 50%;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        padding-top: 6rem;
-        position: relative;
+      width: 50%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding-top: 2rem;
+      position: relative;
     }
+  }
 
-    .hero-body {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        max-height: 45rem;
+  @media screen and (max-width: 720px) {
+    .hero-title-small {
+      font-size: 2rem;
+      font-weight: 700;
     }
-
-    @media screen and (max-width: 940px) {
-        .welcome-wrapper {
-
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            gap: 1rem;
-        }
-
-        .hero-title {
-            display: none;
-        }
-
-        .hero-title-small {
-            display: block;
-            font-size: 3rem;
-            font-weight: 700;
-            text-align: left;
-            color: var(--accent-dark);
-            margin-bottom: 1rem;
-        }
-
-        .welcome-content p,
-        .welcome-content h1 {
-            max-width: 100%;
-        }
-
-        .welcome-content {
-            display: flex;
-            width: 100%;
-            max-width: 90vw;
-        }
-
-        #hero {
-            padding-bottom: 10rem;
-            margin: 0;
-        }
-
-        .img-wrapper {
-            width: 50%;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            padding-top: 2rem;
-            position: relative;
-        }
-    }
-
-
-    @media screen and (max-width: 720px) {
-        .hero-title-small {
-
-            font-size: 2rem;
-            font-weight: 700;
-
-
-        }
-
-    }
-
+  }
 </style>
