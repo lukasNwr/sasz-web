@@ -9,6 +9,8 @@ import Warning from "../components/home/Warning.astro";
 import Card from "../components/home/HomeCard.astro";
 import HomeCard from "../components/home/HomeCard.astro";
 import Button from "../components/Button.astro";
+
+const canonicalUrl = "https://sasz.sk/";
 ---
 
 <script>
@@ -21,7 +23,7 @@ import Button from "../components/Button.astro";
   }
 </script>
 
-<Layout title="SASZ">
+<Layout title="SASZ" canonicalUrl={canonicalUrl}>
   <div class="home">
     <Hero />
     <div class="cards">
