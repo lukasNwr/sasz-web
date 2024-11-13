@@ -5,21 +5,12 @@ import { IoMenu } from "react-icons/io5";
 const menuItems = [
   {
     name: "Home",
-    link: "index.html",
+    link: "/",
   },
-  // {
-  //   name: "O nás",
-  //   link: "/o-nas",
-  // },
-
   {
     name: "Štítna Žľaza",
     link: "/stitna-zlaza",
   },
-  //   {
-  //     name: "Odbornici",
-  //     link: "/odbornici",
-  //   },
   {
     name: "Komunita",
     link: "/komunita",
@@ -28,68 +19,12 @@ const menuItems = [
     name: "Užitočné zdroje",
     link: "/linky",
   },
-  //   {
-  //     name: "Materialy na Stiahnutie",
-  //     link: "contact.html",
-  //   },
-  // {
-  //   name: "Videá",
-  //   link: "/videa",
-  // },
 ];
 ---
 
-<script></script>
-
-<script type="module">
-  //@ts-ignore
-  //@ts-nocheck
-  const nav = document.querySelector(".items-wrapper");
-  const navLinks = nav.querySelectorAll(".nav-item");
-  const currentURL = window.location.href;
-
-  navLinks.forEach((link) => {
-    if (link.href === currentURL) {
-      link.classList.add("active");
-    }
-  });
-
-  const navbar = document.querySelector(".navbar");
-  const scrollThreshold = window.innerHeight / 4;
-
-  function checkScrollPostition() {
-    if (navbar) {
-      const scrollY = window.scrollY;
-
-      if (scrollY >= scrollThreshold) {
-        navbar.classList.add("scrolled");
-      } else {
-        navbar.classList.remove("scrolled");
-      }
-    }
-  }
-
-  window.addEventListener("scroll", checkScrollPostition);
-  checkScrollPostition();
-
-  const dropdownIcon = document.querySelector(".dropdown-icon");
-  if (dropdownIcon) {
-    dropdownIcon.addEventListener("click", () => {
-      const dropMenu = document.querySelector(".drop-menu");
-      const body = document.querySelector("body");
-      if (dropMenu) {
-        dropMenu.classList.toggle("active");
-        body.style.overflow = dropMenu.classList.contains("active")
-          ? "hidden"
-          : "auto";
-      }
-    });
-  }
-</script>
-
-<div class="navbar">
+<header class="navbar">
   <div class="navbar-wrapper">
-    <a href="/index" class="logo">
+    <a href="/" class="logo">
       <img src="/sz_logo_mono.svg" alt="mono-logo" />
       <span>SASZ</span>
     </a>
@@ -102,12 +37,12 @@ const menuItems = [
         ))
       }
     </nav>
-    <div class="dropdown-icon">
+    <button class="dropdown-icon" id="menuButton">
       <IoMenu />
-    </div>
+    </button>
   </div>
-  <div class="drop-menu">
-    <div class="drop-items-wrapper">
+  <div class="drop-menu" id="dropMenu">
+    <nav class="drop-items-wrapper">
       {
         menuItems.map((item) => (
           <a href={item.link} class="nav-item">
@@ -115,13 +50,56 @@ const menuItems = [
           </a>
         ))
       }
-    </div>
+    </nav>
   </div>
-</div>
+</header>
 
-<style is:global>
-  .drop-menu {
-    display: none;
+<script>
+  function setupMenu() {
+    const menuButton = document.getElementById("menuButton");
+    const dropMenu = document.getElementById("dropMenu");
+
+    if (menuButton && dropMenu) {
+      // Remove any existing event listeners
+      menuButton.replaceWith(menuButton.cloneNode(true));
+
+      // Get the fresh reference after cloning
+      const newMenuButton = document.getElementById("menuButton");
+
+      // Add new event listener
+      newMenuButton?.addEventListener("click", () => {
+        dropMenu.classList.toggle("active");
+      });
+    }
+  }
+
+  // Run on initial load
+  setupMenu();
+
+  // Run after each navigation
+  document.addEventListener("astro:after-swap", setupMenu);
+</script>
+
+<style>
+  .navbar {
+    width: 100%;
+    height: var(--header-height, 4rem);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: #fbfafd;
+    z-index: 10;
+  }
+
+  .navbar-wrapper {
+    max-width: 1440px;
+    margin: 0 auto;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 2rem;
   }
 
   .logo {
@@ -131,74 +109,59 @@ const menuItems = [
     color: var(--fg-light);
   }
 
-  .dropdown-icon {
-    font-size: var(--text-lg);
-    display: none;
+  .logo img {
+    height: 3rem;
+    width: auto;
   }
 
-  .logo > img {
-    width: clamp(3rem, 4vw, 4rem);
-    height: clamp(3rem, 4vw, 4rem);
-    margin: -0.5rem;
-  }
-
-  .logo > span {
-    font-size: var(--text-lg);
+  .logo span {
+    margin-left: 0.5rem;
     font-weight: 700;
-    color: var(--fg-light);
-    margin: 0 0.5rem;
-  }
-
-  .navbar-wrapper {
-    height: var(--header-height);
-    padding-inline: var(--spacing-lg);
-    display: flex;
-    max-width: var(--container-max);
-    width: 100%;
-    justify-content: space-between;
-    align-items: center;
-  }
-
-  .navbar {
-    width: 100%;
-    height: var(--header-height);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    background-color: #fbfafd;
-    z-index: 10;
-    transition: all 0.3s ease-in-out;
-  }
-
-  .navbar.scrolled {
-    background-color: white;
-    box-shadow: rgba(33, 35, 38, 0.1) 0px 10px 10px -10px;
   }
 
   .items-wrapper {
     display: flex;
-    justify-content: space-between;
-    gap: clamp(0.5rem, 2vw, 1rem);
+    gap: 1rem;
   }
 
   .nav-item {
     color: var(--fg-light-sec);
     text-decoration: none;
     transition: color 0.2s ease-in-out;
-    font-size: var(--text-sm);
-    white-space: nowrap;
   }
 
   .nav-item:hover {
     color: var(--fg-light);
   }
 
-  .nav-item.active {
+  .dropdown-icon {
+    display: none;
+    font-size: 1.5rem;
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
     color: var(--fg-light);
+  }
+
+  .drop-menu {
+    display: none;
+    width: 100%;
+    background-color: white;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-1rem);
+    transition: all 0.3s ease-in-out;
+    box-shadow: rgba(33, 35, 38, 0.1) 0px 10px 10px -10px;
+  }
+
+  .drop-menu.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
   }
 
   @media screen and (max-width: 900px) {
@@ -208,66 +171,25 @@ const menuItems = [
 
     .dropdown-icon {
       display: block;
-      cursor: pointer;
     }
 
     .drop-menu {
       display: block;
-      background-color: white;
-      position: absolute;
-      top: 100%;
-      right: 0;
-      left: 0;
-      width: 100%;
-      opacity: 0;
-      visibility: hidden;
-      transform: translateY(-1rem);
-      transition: all 0.3s ease-in-out;
-      box-shadow: rgba(33, 35, 38, 0.1) 0px 10px 10px -10px;
-    }
-
-    .drop-menu.active {
-      opacity: 1;
-      visibility: visible;
-      transform: translateY(0);
-    }
-
-    .navbar {
-      flex-direction: column;
-      align-items: center;
-    }
-
-    .navbar-wrapper {
-      width: 100%;
-      background-color: white;
-      position: relative;
-      z-index: 11;
     }
 
     .drop-items-wrapper {
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: center;
       padding: 2rem 1rem;
-      gap: 1.5rem;
+      gap: 1rem;
     }
 
-    .nav-item {
+    .drop-items-wrapper .nav-item {
       font-size: 1.2rem;
       padding: 0.5rem;
       width: 100%;
       text-align: center;
-    }
-  }
-
-  @media screen and (max-width: 480px) {
-    .navbar-wrapper {
-      padding: 0.5rem 1rem;
-    }
-
-    .logo > span {
-      display: none;
     }
   }
 </style>
