@@ -1,54 +1,108 @@
 <section id="warning">
-    <div class="warning-body">
-        <div class="content-wrapper">
-            <div class="warning-content">
-                <h1>Pozor!</h1>
-                <p>Nie sme odborníci, sme pacienti, avšak všetky informácie uvedené na tejto stránke sa snažíme podložiť hodnovernými informáciami s transparentnými zdrojmi. V prípade akýchkoľvek pripomienok prípadne návrhov na úpravu nás neváhajte kontaktovať. </p>
-            </div>
-        </div>
-        <div class="image-wrapper">
-
-            <img src="/home/warning.svg" alt="">
-        </div>
-        
+  <div class="warning-body">
+    <div class="content-wrapper">
+      <div class="warning-content">
+        <h1>Pozor!</h1>
+        <p>
+          Nie sme odborníci, sme pacienti, avšak všetky informácie uvedené na
+          tejto stránke sa snažíme podložiť hodnovernými informáciami s
+          transparentnými zdrojmi. V prípade akýchkoľvek pripomienok prípadne
+          návrhov na úpravu nás neváhajte kontaktovať.
+        </p>
+      </div>
     </div>
-
-    
-
+    <div class="image-wrapper">
+      <img src="/home/warning.svg" alt="Warning illustration" />
+    </div>
+  </div>
 </section>
 
 <style>
-    #warning {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        padding-inline: 10rem;
-        padding-block: 10rem
-    }
+  #warning {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: clamp(3rem, 8vw, 10rem);
+    width: 100%;
+  }
 
-    .img-wrapper {
-        width: 50%;
-    }
+  .warning-body {
+    display: flex;
+    align-items: center;
+    gap: clamp(2rem, 4vw, 4rem);
+    width: 100%;
+    max-width: 75rem;
+  }
 
+  .image-wrapper {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .image-wrapper img {
+    width: 100%;
+    max-width: 33rem;
+    height: auto;
+  }
+
+  .content-wrapper {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+  }
+
+  .warning-content {
+    display: flex;
+    flex-direction: column;
+    max-width: 28rem;
+    gap: 1rem;
+  }
+
+  .warning-content h1 {
+    font-size: clamp(2rem, 4vw, 2.5rem);
+    color: var(--accent-dark);
+  }
+
+  .warning-content p {
+    font-size: clamp(1rem, 1.2vw, 1.2rem);
+    line-height: 1.6;
+    color: var(--foreground-light-sec);
+  }
+
+  @media screen and (max-width: 940px) {
     .warning-body {
-        display: flex;
-        align-items: center;
-        gap: 4rem;
-        margin-bottom: 5rem;
+      flex-direction: column-reverse;
+      gap: 2rem;
+      margin-bottom: 0;
     }
 
-    .content-wrapper {
-        width: 50%;
+    .content-wrapper,
+    .image-wrapper {
+      width: 100%;
+    }
+
+    .image-wrapper {
+      max-width: 25rem;
     }
 
     .warning-content {
-        display: flex;
-        flex-direction: column;
-        max-width: 28rem;
+      max-width: 100%;
+      text-align: left;
+    }
+  }
+
+  @media screen and (max-width: 480px) {
+    #warning {
+      padding: 2rem 1rem;
     }
 
-    .warning-content h1 {
-        font-size: 2.5rem;
-        color: var(--accent-dark)
+    .image-wrapper {
+      max-width: 18rem;
     }
+
+    .warning-content p {
+      font-size: 1rem;
+    }
+  }
 </style>

@@ -1,6 +1,6 @@
 :root {
   --bg-light: ##fcfdfd;
-  --bg-light-sec: #F4F5F5;
+  --bg-light-sec: #f4f5f5;
   --bg-dark: #05080a;
   --accent-light: #6d4b9b;
   --accent-dark: #bda9d6;
@@ -21,4 +21,26 @@
     rgb(var(--accent-light)) 30%,
     rgb(var(--accent-dark)) 60%
   );
+
+  /* Spacing */
+  --spacing-xs: clamp(0.5rem, 1vw, 0.75rem);
+  --spacing-sm: clamp(1rem, 2vw, 1.5rem);
+  --spacing-md: clamp(1.5rem, 3vw, 2rem);
+  --spacing-lg: clamp(2rem, 4vw, 4rem);
+  --spacing-xl: clamp(3rem, 6vw, 6rem);
+
+  /* Typography */
+  --text-xs: clamp(0.75rem, 1vw, 0.875rem);
+  --text-sm: clamp(0.875rem, 1.1vw, 1rem);
+  --text-base: clamp(1rem, 1.2vw, 1.2rem);
+  --text-lg: clamp(1.5rem, 2vw, 1.8rem);
+  --text-xl: clamp(2rem, 3vw, 2.5rem);
+  --text-2xl: clamp(2.5rem, 4vw, 3.5rem);
+
+  /* Container */
+  --container-max: 1440px;
+  --container-padding: clamp(1rem, 4vw, 4rem);
+
+  /* Layout */
+  --header-height: clamp(3.5rem, 4vw, 4rem);
 }

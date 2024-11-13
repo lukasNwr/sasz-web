@@ -19,6 +19,12 @@ export default defineConfig({
         if (item.url === "/") {
           return { ...item, priority: 1.0 };
         }
+        if (item.url.includes("stitna-zlaza")) {
+          return { ...item, priority: 0.9 };
+        }
+        if (item.url.includes("odbornici")) {
+          return { ...item, priority: 0.8 };
+        }
         return item;
       },
     }),

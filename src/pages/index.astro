@@ -54,25 +54,25 @@ const canonicalUrl = "https://sasz.sk/";
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      padding: 2rem;
+      width: 100%;
+      padding: clamp(1rem, 4vw, 4rem);
     }
 
     .cards {
       display: flex;
       flex-direction: column;
-      gap: 2rem;
-      padding-block: 2rem;
+      justify-content: center;
+      align-items: center;
+      gap: clamp(1.5rem, 3vw, 2rem);
+      width: 100%;
+      max-width: 75rem;
+      padding: clamp(1.5rem, 3vw, 2rem) 0;
     }
 
     @media screen and (min-width: 940px) {
       .cards {
         flex-direction: row;
-      }
-    }
-
-    @media screen and (min-width: 1024px) {
-      .home {
-        padding: 4rem;
+        align-items: stretch;
       }
     }
   </style>

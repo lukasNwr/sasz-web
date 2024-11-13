@@ -1,0 +1,26 @@
+---
+const { type = "organization", data } = Astro.props;
+
+const schemas = {
+  organization: {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    name: "Slovenská Asociácia Štítnej Žľazy",
+    url: "https://sasz.sk",
+    logo: "https://sasz.sk/sz_logo_mono.svg",
+    contactPoint: {
+      "@type": "ContactPoint",
+      email: "sastitnejzlazy@gmail.com",
+    },
+  },
+  article: {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    ...data,
+  },
+};
+
+const schema = schemas[type];
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(schema)} />

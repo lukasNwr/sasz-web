@@ -1,35 +1,35 @@
 ---
 import Button from "../../components/Button.astro";
 
-const {title, body, image} = Astro.props;
+const { title, body, image } = Astro.props;
 ---
 
 <script>
-    const btn = document.querySelector(".button-wrapper");
+  const btn = document.querySelector(".button-wrapper");
 
-    if (btn != null) {
-        btn.addEventListener("click", () => {
-            console.log("click");
-        });
-    }
+  if (btn != null) {
+    btn.addEventListener("click", () => {
+      console.log("click");
+    });
+  }
 </script>
 
 <div class="home-card">
-    <div class="image-wrapper"><img src={image} alt="card-image"/></div>
-    <div class="text-wrapper">
-        <div class="title">
-            <div class="title-rec">
-              <span class="title-span">
-                {title}
-              </span>
-            </div>
-        </div>
-        <p>{body}</p>
+  <div class="image-wrapper"><img src={image} alt="card-image" /></div>
+  <div class="text-wrapper">
+    <div class="title">
+      <div class="title-rec">
+        <span class="title-span">
+          {title}
+        </span>
+      </div>
     </div>
-    <div class="slot-wrapper">
-        <slot/>
-    </div>
-    <!-- {
+    <p>{body}</p>
+  </div>
+  <div class="slot-wrapper">
+    <slot />
+  </div>
+  <!-- {
       button && (
         <div class="button-wrapper">
           <Button buttonText={buttonText} class="btn" />
@@ -39,93 +39,90 @@ const {title, body, image} = Astro.props;
 </div>
 
 <style>
+  .home-card {
+    display: flex;
+    width: 100%;
+    max-width: 28rem;
+    min-height: 32rem;
+    padding: var(--spacing-lg);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: var(--spacing-md);
+    border-radius: 1rem;
+    background: #fff;
+    box-shadow: 0px 6px 21px 0px rgba(0, 0, 0, 0.1);
+    transition: all 0.5s ease-in-out;
+  }
+
+  .home-card:hover .title-rec {
+    height: 1.3rem;
+  }
+
+  .home-card:hover {
+    box-shadow: 0px 8px 24px 0px rgba(0, 0, 0, 0.17);
+  }
+
+  .image-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .image-wrapper img {
+    width: 100%;
+    max-width: 18.71875rem;
+    height: auto;
+    aspect-ratio: 1.18/1;
+    object-fit: contain;
+  }
+
+  .text-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: var(--spacing-md);
+    width: 100%;
+  }
+
+  .title-rec {
+    display: inline-flex;
+    align-items: flex-end;
+    width: fit-content;
+    height: 0.5rem;
+    background-color: var(--accent-light);
+    transition: height 0.3s ease-in-out;
+  }
+
+  .title-rec span {
+    font-size: var(--text-xl);
+    font-weight: 700;
+  }
+
+  .text-wrapper h2 {
+    color: #22252b;
+    font-size: var(--text-xl);
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+  }
+
+  .text-wrapper p {
+    width: 100%;
+    max-width: 22rem;
+    text-align: center;
+    font-size: var(--text-base);
+  }
+
+  .slot-wrapper {
+    margin: var(--spacing-md);
+    width: 100%;
+  }
+
+  @media screen and (max-width: 480px) {
     .home-card {
-        display: flex;
-        min-width: 22rem;
-        height: 32rem;
-        padding: 4rem 3.5rem;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        gap: 1.5rem;
-        border-radius: 1rem;
-        background: #fff;
-        box-shadow: 0px 6px 21px 0px rgba(0, 0, 0, 0.1);
-        transition: all 0.5s ease-in-out;
+      min-height: 24rem;
     }
-
-    .home-card:hover .title-rec {
-        height: 1.3rem;
-    }
-
-    .home-card:hover {
-        box-shadow: 0px 8px 24px 0px rgba(0, 0, 0, 0.17);
-        /* transform: scale(1.01); */
-    }
-
-    .image-wrapper img {
-        width: 18.71875rem;
-        height: 15.89144rem;
-        flex-shrink: 0;
-    }
-
-    .text-wrapper {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        gap: 1rem;
-    }
-
-    .title-rec {
-        display: inline-flex;
-        align-items: flex-end;
-        width: fit-content;
-        height: 0.5rem;
-        background-color: var(--accent-light);
-        transition: height 0.3s ease-in-out;
-    }
-
-    .title-rec span {
-        font-size: 2.2rem;
-        font-weight: 700;
-    }
-
-    .text-wrapper h2 {
-        color: #22252b;
-        font-size: 2.25rem;
-        font-style: normal;
-        font-weight: 700;
-        line-height: normal;
-    }
-
-    .text-wrapper p {
-        width: 22rem;
-        text-align: center;
-    }
-
-    .slot-wrapper {
-        margin: 1rem;
-    }
-
-    @media screen and (max-width: 1140px) {
-        .home-card {
-            min-width: 14rem;
-            height: 24rem;
-            padding: 4rem 2rem;
-            gap: 1rem;
-            border-radius: 1rem;
-        }
-
-        .image-wrapper img {
-            width: 14rem;
-            height: 11rem;
-            flex-shrink: 0;
-        }
-
-        .title-rec span {
-            font-size: 2rem;
-            font-weight: 700;
-        }
-    }
+  }
 </style>

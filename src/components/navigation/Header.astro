@@ -76,8 +76,12 @@ const menuItems = [
   if (dropdownIcon) {
     dropdownIcon.addEventListener("click", () => {
       const dropMenu = document.querySelector(".drop-menu");
+      const body = document.querySelector("body");
       if (dropMenu) {
         dropMenu.classList.toggle("active");
+        body.style.overflow = dropMenu.classList.contains("active")
+          ? "hidden"
+          : "auto";
       }
     });
   }
@@ -92,7 +96,7 @@ const menuItems = [
     <nav class="items-wrapper">
       {
         menuItems.map((item) => (
-          <a href={item.link} class="nav-item ">
+          <a href={item.link} class="nav-item">
             {item.name}
           </a>
         ))
@@ -106,7 +110,7 @@ const menuItems = [
     <div class="drop-items-wrapper">
       {
         menuItems.map((item) => (
-          <a href={item.link} class="nav-item ">
+          <a href={item.link} class="nav-item">
             {item.name}
           </a>
         ))
@@ -122,42 +126,42 @@ const menuItems = [
 
   .logo {
     display: flex;
-    width: auto;
-    height: auto;
+    align-items: center;
     text-decoration: none;
     color: var(--fg-light);
   }
 
   .dropdown-icon {
-    font-size: 1.8rem;
+    font-size: var(--text-lg);
     display: none;
   }
 
   .logo > img {
-    width: 4rem;
-    height: 4rem;
-    margin: -1rem;
+    width: clamp(3rem, 4vw, 4rem);
+    height: clamp(3rem, 4vw, 4rem);
+    margin: -0.5rem;
   }
 
   .logo > span {
-    font-size: 1.5rem;
+    font-size: var(--text-lg);
     font-weight: 700;
     color: var(--fg-light);
-    margin: 0 1rem;
+    margin: 0 0.5rem;
   }
 
   .navbar-wrapper {
+    height: var(--header-height);
+    padding-inline: var(--spacing-lg);
     display: flex;
-    max-width: 1440px;
+    max-width: var(--container-max);
     width: 100%;
     justify-content: space-between;
     align-items: center;
-    padding-block: 1rem;
-    padding-inline: 3rem;
   }
 
   .navbar {
     width: 100%;
+    height: var(--header-height);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -166,7 +170,6 @@ const menuItems = [
     left: 0;
     right: 0;
     background-color: #fbfafd;
-
     z-index: 10;
     transition: all 0.3s ease-in-out;
   }
@@ -179,14 +182,15 @@ const menuItems = [
   .items-wrapper {
     display: flex;
     justify-content: space-between;
-    gap: 1rem;
-    left: auto;
+    gap: clamp(0.5rem, 2vw, 1rem);
   }
 
   .nav-item {
     color: var(--fg-light-sec);
     text-decoration: none;
     transition: color 0.2s ease-in-out;
+    font-size: var(--text-sm);
+    white-space: nowrap;
   }
 
   .nav-item:hover {
@@ -208,19 +212,24 @@ const menuItems = [
     }
 
     .drop-menu {
-      display: none;
+      display: block;
       background-color: white;
-      position: fixed;
-      top: 5rem;
-      right: 1rem;
-      padding-inline: 2rem;
-      border-radius: 1rem;
-      box-shadow: rgba(33, 35, 38, 0.1) 0px 10px 10px -10px;
+      position: absolute;
+      top: 100%;
+      right: 0;
+      left: 0;
+      width: 100%;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(-1rem);
       transition: all 0.3s ease-in-out;
+      box-shadow: rgba(33, 35, 38, 0.1) 0px 10px 10px -10px;
     }
 
     .drop-menu.active {
-      display: flex;
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
     }
 
     .navbar {
@@ -229,19 +238,36 @@ const menuItems = [
     }
 
     .navbar-wrapper {
-      width: 90%;
+      width: 100%;
+      background-color: white;
+      position: relative;
+      z-index: 11;
     }
 
     .drop-items-wrapper {
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
       align-items: center;
+      justify-content: center;
+      padding: 2rem 1rem;
+      gap: 1.5rem;
+    }
+
+    .nav-item {
+      font-size: 1.2rem;
+      padding: 0.5rem;
       width: 100%;
-      height: 100%;
-      padding: 2rem;
-      gap: 1rem;
-      color: var(--fg-light);
+      text-align: center;
+    }
+  }
+
+  @media screen and (max-width: 480px) {
+    .navbar-wrapper {
+      padding: 0.5rem 1rem;
+    }
+
+    .logo > span {
+      display: none;
     }
   }
 </style>

@@ -5,6 +5,7 @@
 import Header from "../components/navigation/Header.astro";
 import Footer from "../components/navigation/Footer.astro";
 import { ViewTransitions } from "astro:transitions";
+import StructuredData from "../components/SEO/StructuredData.astro";
 import "../styles/theme.css";
 interface Props {
   title: string;
@@ -14,19 +15,32 @@ const { title, canonicalUrl } = Astro.props;
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="sk">
   <head>
     <ViewTransitions />
     <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
     <meta
       name="description"
-      content="Oficiánla internetová stránka Slovenskej Asociácie Štítnej Žľazy"
+      content="Oficiálna internetová stránka Slovenskej Asociácie Štítnej Žľazy - Informácie, podpora a komunita pre ľudí s ochorením štítnej žľazy."
     />
-    <meta name="viewport" content="width=device-width" />
+    <meta
+      name="keywords"
+      content="štítna žľaza, SASZ, Slovenská Asociácia Štítnej Žľazy, tyreoidea, endokrinológia, hypotyreóza, hypertyreóza"
+    />
+    <meta name="author" content="Slovenská Asociácia Štítnej Žľazy" />
+    <meta property="og:title" content={title} />
+    <meta
+      property="og:description"
+      content="Oficiálna internetová stránka Slovenskej Asociácie Štítnej Žľazy"
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:image" content="/sz_logo_mono.svg" />
     <link rel="icon" type="image/x-icon" href="/sz_logo_mono.ico" />
     <link rel="canonical" href={canonicalUrl} />
-    <meta name="generator" content={Astro.generator} />
-    <title>{title}</title>
+    <title>{title} | SASZ</title>
+    <StructuredData />
   </head>
   <Header />
   <body>
@@ -38,30 +52,47 @@ const { title, canonicalUrl } = Astro.props;
 
   <style is:global>
     .page-content {
-      max-width: 1440px;
-      padding-left: 10rem;
-      padding-right: 10rem;
-      display: flex;
-      justify-content: start;
-      align-items: center;
-      flex-direction: column;
-
-      min-height: 100vh;
+      width: 100%;
+      max-width: var(--container-max);
+      padding: var(--container-padding);
+      margin: var(--header-height) auto 0;
+      min-height: calc(100vh - var(--header-height));
     }
 
     body {
       justify-content: center;
-      margin-top: 3rem;
+      margin-top: var(--spacing-xl);
       display: flex;
       flex-direction: column;
       align-items: center;
       background: #fbfafd;
+      width: 100%;
+      min-height: 100vh;
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
     }
 
     html {
       font-family: system-ui, sans-serif;
-      background: white;
-      margin: 0px;
+      background: #fbfafd;
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      width: 100%;
+      overflow-x: hidden;
+    }
+
+    *,
+    *:before,
+    *:after {
+      box-sizing: inherit;
+    }
+
+    @media screen and (min-width: 480px) {
+      .page-content {
+        padding: 0 1.5rem;
+      }
     }
 
     @media screen and (min-width: 768px) {
@@ -73,6 +104,12 @@ const { title, canonicalUrl } = Astro.props;
     @media screen and (min-width: 1024px) {
       .page-content {
         padding: 0 4rem;
+      }
+    }
+
+    @media screen and (min-width: 1440px) {
+      .page-content {
+        padding: 0 6rem;
       }
     }
 
@@ -93,4 +130,15 @@ const { title, canonicalUrl } = Astro.props;
         monospace;
     }
   </style>
+  <script>
+    document.addEventListener("astro:page-load", () => {
+      // Re-run all scripts after page transitions
+      const scripts = document.querySelectorAll("script[data-astro-rerun]");
+      scripts.forEach((script: HTMLScriptElement) => {
+        if (script.innerText) {
+          eval(script.innerText);
+        }
+      });
+    });
+  </script>
 </html>
